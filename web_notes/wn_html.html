@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko"> <!-- 영어 en, 중국 zh-ch, -->
+<head>
+  <meta charset="UTF-8">
+  <!-- <meta name="description" content="HTML tag summary notes"> Is writing summary notes a waste of time? -->
+  <!-- <meta name="keyword" content="HTML, tag"> What is the best way to take notes for coding? -->
+  <!-- <meta name="author" content="surfyam"> -->
+  <!-- <meta http-equiv="refresh" content="30"> 30초에 한번씩 새로 고침 -->
+  <!-- <link rel="canonial" href="http://localhost/index.html"> 검색엔진 결과 여러 버전의 url이 나타날 때, 특정(오리지널) url를 보게 만듬, 리다이렉션 시킴 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 모바일로 보기 -->
+  <title>HTML 태그 연습</title>
+  <style>
+  a {text-decoration:none;}
+  </style>
+</head>
+
+<body>
+<header>
+  <h1>HTML</h1>
+</header>
+  <h2>img 태그 : 이미지 삽입</h2>
+  <p>
+  <!-- <img src="경로/파일명.확장자" width="픽셀" alt="이미지 미출력시 대안문자" title="툴팁내용"> -->
+  <!-- ../경로(부모 디렉토리),  ./경로 or 생략(현재 디렉토리) ,  /경로 or http://경로(루트 디렉토리, 절대경로) -->
+   <img src="images/hi.jpg" width="100" alt="안녕하세요" title="아기인사">
+   </p>
+  <h2>table 태그 : 표만들기</h2>
+    <p>
+    <!-- <td> : table data 항목명 -->
+    <!-- <tr> : table row 행, 행으로 묶어준다, <tr><td></td><td></td></tr> : 행(줄)추가 -->
+    <!-- <table border="선굵기"> : 표, 표을 만들겠다고 선언 -->
+    </p>
+    <table border="1">
+    <tr><!--1행 : 제목줄 -->
+      <td>제목줄1</td><td>제목줄1-2</td><td>제목줄1-3</td>
+    </tr>
+    <tr><!--2행 -->
+      <td>줄2</td><td>항목2-2</td><td>항목2-3</td>
+    </tr>
+    <tr><!--3행-->
+      <td>줄3</td><td>항목3-2</td><td>항목3-3</td>
+    </tr>
+    <table>
+  <h2>form 태그 : 입력창 만들기</h2>
+    <p>
+    <!-- <input type="" name="입력창이름" value="기본값"> : 입력창 만들기 -->
+    <!-- <input type="submit" value="전송"> : 제출(전송)버튼 만들기, 제출상황은 주소창에 서버(데이터전송처)가 나타나는 것으로 확인됨 -->
+    <!-- <input type="reset" value="버튼"> : 초기화, 입력내용 다 지위짐 -->
+    <!-- <form action="양식을 보낼 서버(데이터전송처)" method="post"></form> : 양식을 선언한다, data 전송방식 정하기 get방식(기본값, url로 data 전송), post방식(비밀보안유지, data가 url(주소창)에 나타나지 않음 -->
+    <!-- <textarea rows="행(줄)" cols="열(칸) 글자수">기본값</textarea> 여러줄의 입력창 만들기 -->
+    <!-- <label for=""><input id="">  레이블(이름표) 만들기, 레이블명 클릭하면 입력창에 커서가 깜빡임-->
+    <!-- <label><input></label>  id를 만들지 않고 위와 동일한 효과 -->
+    </p>
+    <form action="http://localhost/login.php" method="post">
+      <p><label for="id_txt">ID </label><input id="id_txt" type="text" name="id" value="default value"> 아이디 또는 전자우편</p>
+      <p><label for="password">Pwd </label><input id="password" type="password" name="pwd" value="default value"> 8자이상 숫자,영문자,특수문자(*,/ 제외)</p>
+      <p><label for="address">Add </label><input id="address" type="text" name="address"></p>
+      <p><label for="comments">Comments </label><textarea id="comments" rows="2" cols="50">코멘트 남기세요!</textarea></p>
+      <input type="submit" value="확인">
+      <input type="reset" value="새로 작성">
+    </form>
+    <h3>select 태그 : 드롭다운 메뉴 만들기</h3>
+      <p>
+      <!-- <select name="선택창이름"> 콤보박스(드롭다운메뉴)선택지 만들기 -->
+      <!-- <select name="선택창이름" multiple> 콤보박스(드롭다운메뉴)다중 선택지 만들기 -->
+      <!-- <option value="전송될 값"> 선택지 내 옵션 만들기 -->
+      </p>
+      <form action="http://localhost/color.php">
+        <p> Color (단일선택)
+        <select name="color">
+          <option value="red">Red</option>
+          <option value="green">Green</option>
+          <option value="blue">Blue</option>
+        </select>
+        <input type="submit" value="선택">
+        </p>
+        <p>Color (다중선택)
+        <select name="color2" multiple>
+          <option value="red">Red</option>
+          <option value="green">Green</option>
+          <option value="blue">Blue</option>
+        </select>
+        <input type="submit" value="선택"> ctrl키를 눌러 선택
+        </p>
+      </form>
+    <h3>input type="radio" : 라디오버튼 만들기 (단일선택)</h3>
+      <p>
+      <!-- <input type="radio" name="" value="" checked> 동일한 name으로 그룹핑하면 하나가 선택하면 다른 하나는 선택이 해제됨. checked 입력시 체크된 상태로 나타남 -->
+      </p>
+      <p>
+      <form action="http://localhost/radio_color.php">
+        <p>Color1(단일선택)
+        <input type="radio" name="color" value="red" checked> Red
+        <input type="radio" name="color" value="green"> Green
+        <input type="radio" name="color" value="blue"> Blue
+        <input type="submit" value="선택">
+        </p>
+        <p>
+        Color2(단일선택)
+        <input type="radio" name="color2" value="red"> Red
+        <input type="radio" name="color2" value="green" checked> Green
+        <input type="radio" name="color2" value="blue"> Blue
+        <input type="submit" value="선택">
+        </p>
+      </form>
+    <h3>input type="checkbox" : 체크박스 만들기 (다중선택)</h3>
+      <p>
+      <!-- <input type="checkbox" name="" value=""> 동일한 name으로 그룹핑 해도 다중선택이 가능함. checked 입력시 체크된 상태로 나타남 -->
+      <!-- <label><input type="checkbox" name="" value=""></label> 레이블태그로 감싸면 좁은 체크박스 뿐아니라 체크박스명을 클릭해도 체크됨-->
+      </p>
+      <form action="http://localhost/checkbox_color.php">
+      <p>
+        <input type="checkbox" name="color" value="red"> Red 레이블태그를 미사용시
+        <label><input type="checkbox" name="color" value="green" checked> Green 레이블태그 사용시</label>
+        <label for="lable"><input id="lable" type="checkbox" name="color" value="blue" checked>Blue 레이블태그 사용시</label>
+        <input type="submit" value="선택">
+      </p>
+      </form>
+    <h3>input type="button" : 버튼 만들기</h3>
+      <p>
+      <!-- <input type="button" value="버튼" onclick="실행할스크립트"> : 버튼 만들기, 클릭하면 새창 뜸-->
+      </p>
+      <form action="http://localhost/button.php">
+        <input type="button" value="버튼" onclick="alert('hi!')">
+      </form>
+    <h3>input type="hidden" : 보이지 않지만 전송시 같이 제출되게 하기</h3>
+      <p>
+      <!-- <input type="hidden" name="" value=""> UI에 보이지 않지만 제출 시 함게 서버로 전송됨-->
+      </p>
+      <form action="http://localhost/hidden.php">
+        ID <input type="text" name="id">
+        <input type="hidden" name="안보임" value="Hi">
+        <input type="submit" value="확인">
+      </form>
+    <h3>input type="file" : 파일업로드</h3>
+      <p>
+      <!-- <form action="" method="post" ecntype="mutilpart/form-date"><input type="file" name="profile"></form> 파일업로드 시-->
+      </p>
+      <form action="http://localhost/upload.php" method="post" enctype="mutilpart/form-data">
+        <input type="file" name="profile">
+        <input type="submit" value="저장">
+      </form>
+  <h2>Semantic 태그 : 의미 부여</h2>
+    <table border="1">
+      <tr><td>header</td><td>화면의 상단에 위치하는 사이트나 문서의 전체적인 정보</td></tr>
+      <tr><td>footer</td><td>화면의 하단에 위치하는 사이트나 문서의 전체적인 정보</td></tr>
+      <tr><td>nav</td><td>목차, 문서의 네비게이션 항목</td></tr>
+      <tr><td>article</td><td>본문</td></tr>
+      <tr><td>section</td><td>문서의 구획, 여러 article 묶음</td></tr>
+      <tr><td>main</td><td>문서에서 가장 중심이 되는 컨텐츠</td></tr>
+      <tr><td>aside</td><td>광고와 같이 페이지의 내용과는 관계가 적은 내용들, 주로 사이드바의 내용들</td></tr>
+      <tr><td>details</td><td>기본적으로 표시되지 화면에 표시되지 않는 정보들</td></tr>
+      <tr><td>figure</td><td>삽화나 다이어그램과 같은 부가적인 요소</td></tr>
+      <tr><td>mark</td><td>형광펜(하이라이트)</td></tr>
+      <tr><td>time</td><td>시간 <!-- <time datetime="2008-02-14 20:00">Valentines day</time> <time>10:00</time> --></td></tr>
+    </table>
+  <h2>검색 최적화</h2>
+    <a href="https://static.googleusercontent.com/media/www.google.com/ko//intl/ko/webmasters/docs/search-engine-optimization-starter-guide-ko.pdf" target="_blank">구글 검색엔진 최적화 가이드</a>
+  <h2>크롬개발자 도구</h2>
+    <a href="https://opentutorials.org/module/306/2865" target="_blnak">크롬개발자 도구 수업 바로가기</a>
+  <h2>iframe 태그 : 외부문서 삽입</h2>
+    <!-- <iframe src="" sandbox> 사용시 보안에 취약함으로 sandbox 속성을 넣어야 원천적으로 막아짐  -->
+    <p><iframe width="640" height="360" src="https://www.youtube.com/embed/6Y8PpdMb6BI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+    <p><iframe src="wn_html2.html" sandbox></iframe></p>
+  <h2>video 태그 : 영상 삽입</h2>
+      <!-- <video width="" height="" controls> 지원가능 포캣이 적음(MP4, WebM, Ogg), 영상 하나만 되나?  -->
+    <p><video src="../videos/SampleVideo_1280x720_1mb.mp4" type="video/mp4" width="640" height="360" controls>Your browser does not support the video tag.</video></p>
+    <p>
+    <video width="640" height="360" controls>
+      <source src="../videos/SampleVideo_1280x720_1mb.mp4" type="video/mp4">Your browser does not support the video tag.
+      <source src="../videos/SampleVideo_1280x720_2mb.mp4" type="video/mp4">Your browser does not support the video tag.
+      <source src="../videos/SampleVideo_1280x720_5mb.mp4" type="video/mp4">Your browser does not support the video tag.
+    </video>
+    </p>
+
+<footer>
+  <ul>
+    <li><a href="">테스트중</a><li>
+    <li><a href=""></a><li>
+  </ul>
+</footer>
+</body>
+</html>
