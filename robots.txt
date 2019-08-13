@@ -1,0 +1,8 @@
+#
+# 민감한 콘텐츠는 암호화하거나 .htaccess를 사용하여 비밀번호로 보호하는 것이 안전한 방법임
+#
+User-agent : *
+Disallow : /images/
+Disallow : /bookmarks/
+Disallow : /web_notes/
+Sitemap : /sitemap.xml
